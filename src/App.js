@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Alert, AlertTitle } from "@mui/material";
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 function App() {
 
@@ -144,68 +144,87 @@ function App() {
           )}
 
           {page === "infos" && pokemonData && (
-            <div className="Infos">
+            <div className="infos">
               {Object.keys(pokemonData.images).length != 0 && (
                 <img
                   className="imagem"
                   src={pokemonData.images.front_default}
                 ></img>
               )}
+              <h2 style={{ textTransform: "capitalize" }}> {pokemonData.name}</h2>
               <div className="infosPokemon">
-                <div className="info" id="namePokemon">
-                  <span>Nome: </span>
-                  <span style={{ textTransform: "capitalize" }}>
-                    {pokemonData.name}
-                  </span>
+
+                <div className="info">
+                  <span>HP </span>
+                  <div>
+
+                    <progress id="file" value={pokemonData.hp} max="100"> {pokemonData.hp} </progress>
+                    <span> {pokemonData.hp} </span>
+                  </div>
                 </div>
                 <div className="info">
-                  <span>HP: </span>
-                  <span>{pokemonData.hp}</span>
+                  <span>Ataque </span>
+                  <div>
+
+                    <progress id="file" value={pokemonData.attack} max="100"> {pokemonData.attack} </progress>
+                    <span> {pokemonData.attack} </span>
+                  </div>
                 </div>
                 <div className="info">
-                  <span>Ataque: </span>
-                  <span>{pokemonData.attack}</span>
+                  <span>Defesa </span>
+                  <div>
+
+                    <progress id="file" value={pokemonData.defense} max="100"> {pokemonData.defense} </progress>
+                    <span> {pokemonData.defense} </span>
+                  </div>
                 </div>
                 <div className="info">
-                  <span>Defesa: </span>
-                  <span>{pokemonData.defense}</span>
+                  <span>Velocidade </span>
+                  <div>
+
+                    <progress id="file" value={pokemonData.velocity} max="100"> {pokemonData.velocity} </progress>
+                    <span> {pokemonData.velocity} </span>
+                  </div>
                 </div>
                 <div className="info">
-                  <span>Velocidade: </span>
-                  <span>{pokemonData.velocity}</span>
-                </div>
-                <div className="info">
-                  <span>Peso: </span>
+                  <span>Peso </span>
                   <span>{pokemonData.weight}</span>
                 </div>
                 <div className="info">
-                  <span>Tamanho: </span>
+                  <span>Tamanho </span>
                   <span>{pokemonData.size}</span>
                 </div>
                 <div className="info">
-                  <span>Habilidades: </span>
-                  {pokemonData.arrayAbilities.map((ability) => (
-                    <div style={{ textTransform: "capitalize" }}>
-                      <br />
-                      <div
-                        onClick={function () { getByAbility(ability.url); setAbility(ability.name) }}
-                        key={ability.url}
-                      >
-                        {ability.name}
+                  <span>Habilidades </span>
+                  <div className="typeAndAbility">
+
+
+                    {pokemonData.arrayAbilities.map((ability) => (
+                      <div style={{ textTransform: "capitalize" }}>
+                        <br />
+                        <div
+                          onClick={function () { getByAbility(ability.url); setAbility(ability.name) }}
+                          key={ability.url}
+                        >
+                          {ability.name}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
                 <div className="info">
-                  <span>Tipos: </span>
-                  {pokemonData.arrayTypes.map((type) => (
-                    <div style={{ textTransform: "capitalize" }}>
-                      <br />
-                      <div onClick={function () { getByType(type.url); setType(type.name) }}>
-                        {type.name}
+                  <span>Tipos </span>
+                  <div className="typeAndAbility">
+
+                    {pokemonData.arrayTypes.map((type) => (
+                      <div style={{ textTransform: "capitalize" }}>
+                        <br />
+                        <div onClick={function () { getByType(type.url); setType(type.name) }}>
+                          {type.name}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -213,7 +232,7 @@ function App() {
 
           {page === "abilities" &&
             <div style={{ width: '90%', margin: 'auto' }}>
-              <h1 className="typeAndAbility">Pokemons com a habilidade {ability}</h1>
+              <h1 className="typeAndAbilityTitle">Pokemons com a habilidade {ability}</h1>
               <li className="listPokemons">
                 {pokemonsByAbility.map((pokemon) => (
                   <div onClick={() => { onClickPokemon(pokemon.pokemon.name) }} style={{ textTransform: "capitalize" }}>

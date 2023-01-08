@@ -38,6 +38,10 @@
   }
 }
 
+.infos {
+  margin: 20px
+}
+
 .inputPokemon {
   border-radius: 10px;
   border: 1px solid lightgray;
@@ -66,18 +70,29 @@
 }
 
 .imagem {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
 }
 
 .title {
+  padding: 10px;
+  padding-bottom: 30px;
   color: orangered;
 }
 
 .info {
-  border: 1px solid red;
-  padding: 10px;
-  margin: 10px;
+  font-size: small;
+  border-bottom: 0.1px solid lightgray;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.infosPokemon {
+  border: 0.1px solid lightgray;
+  border-radius: 5px;
+  width: 50%;
+  margin: auto;
 }
 
 .listPokemons {
@@ -94,6 +109,12 @@
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-.typeAndAbility{
-  padding: 10px;
+
+.typeAndAbility {
+  display: flex;
+  column-gap: 10px;
+}
+
+.typeAndAbilityTitle{
+  padding-top: 20px;
 }
