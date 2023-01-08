@@ -95,6 +95,8 @@ function App() {
     try {
       const data = await axios.get(`${url}`);
       setPokemonsByAbility(data.data.pokemon);
+      console.log('ability', data.data);
+      setAbility(data.data);
       setPage("abilities");
     } catch (error) { }
   }
@@ -203,7 +205,7 @@ function App() {
                       <div style={{ textTransform: "capitalize" }}>
                         <br />
                         <div
-                          onClick={function () { getByAbility(ability.url); setAbility(ability.name) }}
+                          onClick={function () { getByAbility(ability.url) }}
                           key={ability.url}
                         >
                           {ability.name}
@@ -232,7 +234,18 @@ function App() {
 
           {page === "abilities" &&
             <div style={{ width: '90%', margin: 'auto' }}>
-              <h1 className="typeAndAbilityTitle">Pokemons com a habilidade {ability}</h1>
+              <div style={{ padding: '20px' }}>
+                <h3 style={{ textTransform: "capitalize" }}>
+
+                  {ability.name}:
+                </h3>
+                <br />
+                <span>
+
+                  {ability.effect_entries[1].short_effect}
+                </span>
+              </div>
+              <h1 className="typeAndAbilityTitle">Pokemons com a habilidade {ability.name}</h1>
               <li className="listPokemons">
                 {pokemonsByAbility.map((pokemon) => (
                   <div onClick={() => { onClickPokemon(pokemon.pokemon.name) }} style={{ textTransform: "capitalize" }}>
@@ -241,7 +254,6 @@ function App() {
                       <span>
                         {pokemon.pokemon.name}
                       </span>
-                      <img src={pokemon.po}></img>
                     </div>
                   </div>
                 ))}
@@ -260,7 +272,6 @@ function App() {
                       <span>
                         {pokemon.pokemon.name}
                       </span>
-                      <img src={pokemon.po}></img>
                     </div>
                   </div>
                 ))}
