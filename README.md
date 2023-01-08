@@ -18,6 +18,7 @@
 ```bash
 $ npm install
 npm install @material-ui/core
+npm install axios
 ```
 ## Rodando o app
 
