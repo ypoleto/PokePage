@@ -240,10 +240,12 @@ function App() {
                   {ability.name}:
                 </h3>
                 <br />
-                <span>
 
-                  {ability.effect_entries[1].short_effect}
-                </span>
+
+                {ability.effect_entries[1].language.name === 'en' && (<span>{ability.effect_entries[1].short_effect}</span>)
+                }
+                {ability.effect_entries[0].language.name === 'en' && (<span>{ability.effect_entries[0].short_effect}</span>)}
+
               </div>
               <h1 className="typeAndAbilityTitle">Pokemons com a habilidade {ability.name}</h1>
               <li className="listPokemons">
