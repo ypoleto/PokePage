@@ -1,11 +1,11 @@
 ## Descrição
 
 O projeto traz:
-  - Informações de um pokemon pesquisado
-  - Permite selecionar uma habilidade do pokemon pesquisado, mostrando:
-    • Lista com pokemons com a mesma habilidade
-    • Descrição da habilidade selecionada 
-  - Permite selecionar um tipo do pokemon pesquisado, mostrando:
+  - Informações de um pokemon pesquisado<br>
+  - Permite selecionar uma habilidade do pokemon pesquisado, mostrando:<br>
+    • Lista com pokemons com a mesma habilidade<br>
+    • Descrição da habilidade selecionada <br>
+  - Permite selecionar um tipo do pokemon pesquisado, mostrando:<br>
     • Lista com pokemons do mesmo tipo. <br>
 Tecnologias principais: ReactJS, HTML e CSS.
 
